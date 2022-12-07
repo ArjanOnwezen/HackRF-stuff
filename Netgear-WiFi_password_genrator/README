@@ -1,0 +1,2 @@
+Cracks WPA2 passwords on Netgear routers.
+run ./netgear_password_gen.sh | "whatever cracking program you use"
