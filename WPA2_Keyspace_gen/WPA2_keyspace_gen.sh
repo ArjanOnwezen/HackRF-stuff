@@ -1,3 +1,4 @@
+#Code by Commander Crash of 29A society
 #!/bin/bash
 
 while true; 
