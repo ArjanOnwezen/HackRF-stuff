@@ -1,4 +1,4 @@
-It creats Random pawssrod guesses based on argumets of your keyspace.
+It creates Random password guesses based on arguments of your keyspace.
 
 Usage.
 ./WPA2_keyspace_gen.sh (1-0 aA-zZ 12345abcdef) (Length of password)
