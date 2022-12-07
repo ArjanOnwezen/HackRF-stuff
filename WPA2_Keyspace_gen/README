@@ -1,0 +1,6 @@
+It creats Random pawssrod guesses based on argumets of your keyspace.
+
+Usage.
+./WPA2_keyspace_gen.sh (1-0 aA-zZ 12345abcdef) (Length of password)
+Or with aircrack-ng:
+./WPA2_keyspace_gen.sh (1-0 aA-zZ 12345abcdef) (Length of password) | while read CODE; do aircrack-ng -b (BSSID) (.cap/pcap)  -w - ; done
