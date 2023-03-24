@@ -9,7 +9,7 @@ if [ $LEN -lt 512 ]
 then
    NUM_COMBINATIONS=17179869184
 else
-   NUM_COMBINATIONS=$((3**$LEN)) 
+   NUM_COMBINATIONS=$((2**$LEN)) 
 fi
 COUNTER=0
 
@@ -30,6 +30,7 @@ do
 
    hackrf_ook -r $REPEAT -s 6156 -b 755 -p 3400 -0 260 -1 512 -m $CODE -f $IFERQ -g -n
    echo -e "\e[42m\e[30mBit String: $CODE\e[0m"
+   sleep $DELAY
 done
 
    echo -e "\e[31mCounter is currently on: $COUNTER\e[0m"
