@@ -1,0 +1,41 @@
+cmake_minimum_required(VERSION 2.6)
+ 
+PROJECT(hackrf_ook)
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
+
+FIND_PACKAGE(PkgConfig)
+FIND_PACKAGE(LibHACKRF)
+FIND_PACKAGE(GLIB2)
+FIND_LIBRARY(M_LIB m)
+
+include_directories(
+	${GLIB2_INCLUDE_DIRS}
+	${LIBHACKRF_INCLUDE_DIRS}
+)
+
+link_directories(
+	${GLIB2_LIBRARY}
+	${LIBHACKRF_PKG_LIBRARY_DIRS}
+)
+
+SET(VERSION "0.0.1")
+ 
+ADD_EXECUTABLE(hackrf_ook hackrf_ook.c)
+
+TARGET_LINK_LIBRARIES(
+	hackrf_ook
+	${GLIB2_LIBRARIES}
+	${LIBHACKRF_LIBRARIES}
+	${M_LIB}
+)
+
+INSTALL(TARGETS hackrf_ook DESTINATION /usr/bin)
+ 
+SET(CPACK_GENERATOR "DEB")
+SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Denis Bodor")
+SET(CPACK_PACKAGE_VERSION "${VERSION}")
+SET(CPACK_DEBIAN_PACKAGE_DESCRIPTION "ASK-OOK transmit tool for Great Scott Gadget HackRF")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>= 2.17), libglib2.0-0 (>= 2.41.1), libhackrf0 (>= 2015.07.2-1)")
+INCLUDE(CPack)
+ 

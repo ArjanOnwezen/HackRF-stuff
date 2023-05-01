@@ -1,0 +1,1 @@
+echo "blacklist hackrf" | sudo tee /etc/modprobe.d/blacklist-hackrf.conf
